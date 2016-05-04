@@ -1,0 +1,37 @@
+==Spring Cloud Data Flow Primer
+
+This is a presentation meant to educate users on on the basics of Spring Cloud Dataflow.
+The primary teaching mechanism is the powerpoint presentation that is included in this repository
+
+== Stream Shell DSL Demo
+
+==== Ticktock
+----
+stream create ticktock --name ticktock --definition "time | log" --deploy
+----
+
+==== Transform stream with label
+----
+stream create --definition "http --server.port=9000 | step2: transform --expression=payload+'!' | log" --name mainstream --deploy
+----
+
+==== Filter Stream
+----
+stream create filterstream --definition "time | filter --expression=payload.contains('2') |log" --deploy
+----
+
+==== Twitter Stream  and Taps
+----
+stream create tweets --definition "twitterstream --consumerKey=<yourkey> --consumerSecret=<yoursecret> --accessToken=<youraccess> --accessTokenSecret=<youraccesssecret> | log"
+stream create tagcount --definition ":tweets.twitterstream > field-value-counter --fieldName=entities.hashtags.text --name=hashtags --store=redis" --deploy
+
+stream create tweetlang  --definition ":tweets.twitterstream > field-value-counter --fieldName=lang --name=language --store=redis" --deploy
+
+stream deploy tweets
+----
+
+=== Sample Projects
+
+* Basic Source
+* Basic Sink
+* Basic Task
