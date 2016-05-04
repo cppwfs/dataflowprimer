@@ -1,4 +1,4 @@
-==Spring Cloud Data Flow Primer
+== Spring Cloud Data Flow Primer
 
 This is a presentation meant to educate users on on the basics of Spring Cloud Dataflow.
 The primary teaching mechanism is the powerpoint presentation that is included in this repository
