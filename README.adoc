@@ -35,5 +35,5 @@ stream deploy tweets
 
 * sinkdemo - creates a sample sink that writes data to log
 * sourcedemo - a source that sends "hello world" based periodically (defaults once every 5 seconds) to the next app in the stream
-* sinkdemo -  writes "hello world" to the console
+* taskdemo -  writes "hello world" to the console
 
